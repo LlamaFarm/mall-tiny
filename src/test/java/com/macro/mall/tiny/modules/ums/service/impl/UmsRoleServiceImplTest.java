@@ -16,10 +16,10 @@ import com.macro.mall.tiny.modules.ums.service.UmsRoleResourceRelationService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
-import org.mockito.InOrder;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
@@ -29,7 +29,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.never;
@@ -212,6 +211,6 @@ class UmsRoleServiceImplTest {
         verify(roleMenuRelationService, never()).saveBatch(any());
         verify(adminCacheService, never()).delResourceListByRoleIds(any());
         // sanity-check: roleId is what got passed to the cache invalidator
-        verify(adminCacheService).delResourceListByRole(eq(5L));
+        verify(adminCacheService).delResourceListByRole(5L);
     }
 }
